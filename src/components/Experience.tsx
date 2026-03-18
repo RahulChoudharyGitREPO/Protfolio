@@ -5,16 +5,16 @@ import FadeIn from "./FadeIn";
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-32 px-6 lg:px-12 bg-dark text-white">
+    <section id="experience" className="py-32 px-6 lg:px-12 border-t border-border">
       <div className="max-w-7xl mx-auto">
         <FadeIn>
           <div className="flex items-center gap-3 mb-6">
-            <span className="w-12 h-px bg-white/40" />
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
+            <span className="w-12 h-px bg-foreground" />
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-secondary">
               Experience
             </span>
           </div>
-          <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-bold tracking-tight mb-20">
+          <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-bold tracking-tight text-foreground mb-20">
             Where I&apos;ve worked
           </h2>
         </FadeIn>
@@ -30,17 +30,17 @@ export default function Experience() {
 
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-6 gap-2">
               <div>
-                <h3 className="text-2xl sm:text-3xl font-bold tracking-tight">
-                  Software Engineer Intern
+                <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+                  Software Engineer
                 </h3>
                 <p className="text-accent font-semibold text-lg mt-1">Relific</p>
               </div>
-              <span className="text-xs uppercase tracking-[0.2em] text-white/40 bg-white/[0.05] px-4 py-2 self-start">
+              <span className="text-xs uppercase tracking-[0.2em] text-secondary border border-border px-4 py-2 self-start">
                 Present
               </span>
             </div>
 
-            <ul className="space-y-4 text-white/60 leading-relaxed">
+            <ul className="space-y-4 text-secondary leading-relaxed">
               <li className="flex items-start gap-3">
                 <svg
                   width="20"

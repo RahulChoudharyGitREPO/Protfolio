@@ -10,8 +10,9 @@ const projects = [
     description:
       "Backend-heavy booking platform — auth, seat management, real-time availability, and transactional booking logic.",
     stack: ["NestJS", "MongoDB", "JWT", "REST API"],
-    github: "#",
+    github: "https://github.com/RahulChoudharyGitREPO/TrainApp",
     number: "01",
+    status: null,
   },
   {
     title: "Real-Life RPG App",
@@ -20,22 +21,43 @@ const projects = [
     stack: ["React Native", "Node.js", "WebSockets", "MongoDB"],
     github: "#",
     number: "02",
+    status: "Coming Soon",
   },
   {
-    title: "PocketPaw",
+    title: "Sephora Clone",
     description:
-      "Open source contribution to a community pet care platform. Features, bug fixes, and developer experience improvements.",
-    stack: ["Open Source", "React", "Node.js"],
-    github: "#",
+      "Full-featured e-commerce clone with product browsing, cart, checkout, and payment integration. Pixel-perfect UI with robust backend.",
+    stack: ["JavaScript", "Node.js", "MongoDB", "REST API"],
+    github: "https://github.com/RahulChoudharyGitREPO/SephoraClone",
     number: "03",
+    status: null,
+  },
+  {
+    title: "Restaurant App Backend",
+    description:
+      "Scalable backend for a restaurant ordering system — menu management, order flow, real-time status updates, and admin dashboard APIs.",
+    stack: ["NestJS", "MongoDB", "JWT", "WebSockets"],
+    github: "https://github.com/RahulChoudharyGitREPO/restaurantAppbackend",
+    number: "04",
+    status: null,
   },
   {
     title: "Neighbourhood Work Finder",
     description:
       "Connecting people with local service providers and odd jobs. Clean UX with reliable matching algorithms.",
     stack: ["React", "NestJS", "MongoDB", "REST API"],
+    github: "https://github.com/RahulChoudharyGitREPO/neighborhood",
+    number: "05",
+    status: null,
+  },
+  {
+    title: "PocketPaw (OSS)",
+    description:
+      "Open source contribution to a community pet care platform. Features, bug fixes, and developer experience improvements.",
+    stack: ["Open Source", "React", "Node.js"],
     github: "#",
-    number: "04",
+    number: "06",
+    status: null,
   },
 ];
 
@@ -60,23 +82,33 @@ function ProjectCard({
         index === 0 ? "border-t" : ""
       }`}
     >
-      {/* Number + Title */}
+      {/* Number */}
       <div className="lg:col-span-1">
         <span className="text-xs font-mono text-secondary">{project.number}</span>
       </div>
 
+      {/* Title + Description */}
       <div className="lg:col-span-5">
         <motion.div style={{ y }}>
           <FadeIn>
-            <h3 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3 group">
-              <a
-                href={project.github}
-                className="hover:text-accent transition-colors duration-300"
-                data-cursor-hover
-              >
-                {project.title}
-              </a>
-            </h3>
+            <div className="flex items-center gap-3 mb-3">
+              <h3 className="text-2xl sm:text-3xl font-bold tracking-tight">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition-colors duration-300"
+                  data-cursor-hover
+                >
+                  {project.title}
+                </a>
+              </h3>
+              {project.status && (
+                <span className="px-3 py-1 text-[10px] font-bold uppercase tracking-[0.15em] bg-accent text-white animate-pulse">
+                  {project.status}
+                </span>
+              )}
+            </div>
             <p className="text-base text-secondary leading-relaxed">
               {project.description}
             </p>
@@ -106,28 +138,36 @@ function ProjectCard({
       {/* Links */}
       <div className="lg:col-span-3 flex lg:justify-end items-start">
         <FadeIn delay={0.2}>
-          <a
-            href={project.github}
-            data-cursor-hover
-            className="group inline-flex items-center gap-2 text-sm font-medium text-foreground"
-          >
-            <span className="link-underline">View Project</span>
-            <motion.svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+          {project.status ? (
+            <span className="inline-flex items-center gap-2 text-sm font-medium text-secondary">
+              In Development
+            </span>
+          ) : (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor-hover
+              className="group inline-flex items-center gap-2 text-sm font-medium text-foreground"
             >
-              <path
-                d="M5.833 14.167L14.167 5.833M14.167 5.833H7.5M14.167 5.833v6.667"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </motion.svg>
-          </a>
+              <span className="link-underline">View Project</span>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+              >
+                <path
+                  d="M5.833 14.167L14.167 5.833M14.167 5.833H7.5M14.167 5.833v6.667"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </a>
+          )}
         </FadeIn>
       </div>
     </motion.div>
@@ -140,7 +180,7 @@ export default function Projects() {
       <div className="max-w-7xl mx-auto">
         <FadeIn>
           <div className="flex items-center gap-3 mb-6">
-            <span className="w-12 h-[1px] bg-foreground" />
+            <span className="w-12 h-px bg-foreground" />
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-secondary">
               Projects
             </span>

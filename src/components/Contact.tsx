@@ -6,18 +6,18 @@ import FadeIn from "./FadeIn";
 const contactLinks = [
   {
     label: "Email",
-    value: "rahul@example.com",
-    href: "mailto:rahul@example.com",
+    value: "rahulrajwwe2@gmail.com",
+    href: "mailto:rahulrajwwe2@gmail.com",
   },
   {
     label: "GitHub",
-    value: "github.com/rahul",
-    href: "https://github.com/rahul",
+    value: "github.com/RahulChoudharyGitREPO",
+    href: "https://github.com/RahulChoudharyGitREPO",
   },
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/rahul",
-    href: "https://linkedin.com/in/rahul",
+    value: "linkedin.com/in/rahul-choudhary",
+    href: "https://www.linkedin.com/in/rahul-choudhary-0348b8296/",
   },
 ];
 

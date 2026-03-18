@@ -3,7 +3,9 @@ import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
+import TextReveal from "@/components/TextReveal";
 import Projects from "@/components/Projects";
+import GitHub from "@/components/GitHub";
 import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -21,7 +23,9 @@ export default function Home() {
         <Marquee />
         <About />
         <Skills />
+        <TextReveal />
         <Projects />
+        <GitHub />
         <Experience />
         <Contact />
       </main>

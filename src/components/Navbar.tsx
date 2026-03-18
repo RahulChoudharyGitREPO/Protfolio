@@ -10,6 +10,12 @@ const links = [
   { label: "Contact", href: "#contact" },
 ];
 
+function scrollTo(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
+  e.preventDefault();
+  const el = document.querySelector(href);
+  if (el) el.scrollIntoView({ behavior: "smooth" });
+}
+
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -51,6 +57,7 @@ export default function Navbar() {
             >
               <a
                 href={link.href}
+                onClick={(e) => scrollTo(e, link.href)}
                 className="text-[13px] font-medium uppercase tracking-[0.15em] text-secondary hover:text-foreground transition-colors duration-300 link-underline"
               >
                 {link.label}
@@ -64,6 +71,7 @@ export default function Navbar() {
           >
             <a
               href="#contact"
+              onClick={(e) => scrollTo(e, "#contact")}
               className="text-[13px] font-medium uppercase tracking-[0.15em] bg-foreground text-white px-5 py-2.5 hover:bg-accent transition-colors duration-300"
             >
               Let&apos;s Talk
@@ -116,7 +124,7 @@ export default function Navbar() {
                 >
                   <a
                     href={link.href}
-                    onClick={() => setMobileOpen(false)}
+                    onClick={(e) => { scrollTo(e, link.href); setMobileOpen(false); }}
                     className="text-4xl font-bold tracking-tight text-foreground"
                   >
                     {link.label}
