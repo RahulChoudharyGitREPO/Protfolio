@@ -2,18 +2,21 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import FadeIn from "./FadeIn";
+import AnimatedCounter from "./AnimatedCounter";
 
 const stats = [
-  { value: "1+", label: "Years Experience" },
-  { value: "144+", label: "Repositories" },
-  { value: "500+", label: "DSA Problems" },
-  { value: "OSS", label: "Contributor" },
+  { target: 1, suffix: "+", label: "Years Experience" },
+  { target: 144, suffix: "+", label: "Repositories" },
+  { target: 500, suffix: "+", label: "DSA Problems" },
+  { target: 0, suffix: "", label: "Contributor", text: "OSS" },
 ];
 
 export default function About() {
   const ref = useRef<HTMLElement>(null);
+  const imgRef = useRef<HTMLDivElement>(null);
+  const imgInView = useInView(imgRef, { once: false, margin: "-100px" });
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -66,13 +69,20 @@ export default function About() {
               </p>
             </FadeIn>
 
-            {/* Stats row */}
+            {/* Stats row with animated counters */}
             <FadeIn delay={0.3}>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mt-12 pt-8 border-t border-border">
                 {stats.map((stat) => (
                   <div key={stat.label}>
                     <p className="text-3xl sm:text-4xl font-black tracking-tight">
-                      {stat.value}
+                      {stat.text ? (
+                        stat.text
+                      ) : (
+                        <AnimatedCounter
+                          target={stat.target}
+                          suffix={stat.suffix}
+                        />
+                      )}
                     </p>
                     <p className="text-xs uppercase tracking-[0.2em] text-secondary mt-1">
                       {stat.label}
@@ -83,20 +93,32 @@ export default function About() {
             </FadeIn>
           </div>
 
-          {/* Right — profile photo with parallax */}
+          {/* Right — profile photo with clip-path reveal */}
           <div>
             <motion.div
+              ref={imgRef}
               style={{ y: imgY, rotate: imgRotate }}
               className="relative w-full aspect-[4/5] overflow-hidden"
             >
-              <Image
-                src="/rahul.jpg"
-                alt="Rahul Choudhary"
-                fill
-                className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-              />
+              <motion.div
+                initial={{ clipPath: "inset(0 100% 0 0)" }}
+                animate={
+                  imgInView
+                    ? { clipPath: "inset(0 0% 0 0)" }
+                    : { clipPath: "inset(0 100% 0 0)" }
+                }
+                transition={{ duration: 1, ease: [0.25, 0.4, 0.25, 1] }}
+                className="w-full h-full"
+              >
+                <Image
+                  src="/rahul.jpg"
+                  alt="Rahul Choudhary"
+                  fill
+                  className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+              </motion.div>
               {/* Overlay border frame */}
               <div className="absolute inset-4 border border-white/30 pointer-events-none" />
             </motion.div>
@@ -105,7 +127,7 @@ export default function About() {
               <div className="mt-6 flex items-center justify-between">
                 <div>
                   <p className="text-sm font-semibold">Rahul Choudhary</p>
-                  <p className="text-xs text-secondary">Jaipur, India</p>
+                  <p className="text-xs text-secondary">Bokaro, Jharkhand</p>
                 </div>
                 <div className="flex gap-3">
                   <a

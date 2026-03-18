@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import FadeIn from "./FadeIn";
+import TiltCard from "./TiltCard";
 
 const achievements = [
   {
@@ -95,6 +96,7 @@ export default function Achievements() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {achievements.map((item, i) => (
             <FadeIn key={item.title} delay={i * 0.08}>
+              <TiltCard tiltAmount={6}>
               <motion.div
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.25 }}
@@ -140,6 +142,7 @@ export default function Achievements() {
                   </svg>
                 </a>
               </motion.div>
+              </TiltCard>
             </FadeIn>
           ))}
         </div>

@@ -28,6 +28,7 @@ import {
 import { FaAws } from "react-icons/fa";
 import { TbApi } from "react-icons/tb";
 import FadeIn from "./FadeIn";
+import TiltCard from "./TiltCard";
 
 interface Skill {
   name: string;
@@ -81,6 +82,7 @@ export default function Skills() {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {allSkills.map((skill, i) => (
             <FadeIn key={skill.name} delay={i * 0.03}>
+              <TiltCard tiltAmount={12}>
               <motion.div
                 whileHover={{ y: -6, scale: 1.03 }}
                 transition={{ duration: 0.25, ease: "easeOut" }}
@@ -104,6 +106,7 @@ export default function Skills() {
                   }}
                 />
               </motion.div>
+              </TiltCard>
             </FadeIn>
           ))}
         </div>

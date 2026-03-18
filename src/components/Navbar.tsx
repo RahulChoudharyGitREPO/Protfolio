@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import MagneticButton from "./MagneticButton";
 
 const links = [
   { label: "About", href: "#about" },
@@ -82,13 +83,15 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.5 }}
           >
-            <a
-              href="#contact"
-              onClick={(e) => scrollTo(e, "#contact")}
-              className="text-[13px] font-medium uppercase tracking-[0.15em] bg-foreground text-white px-5 py-2.5 hover:bg-accent transition-colors duration-300"
-            >
-              Let&apos;s Talk
-            </a>
+            <MagneticButton strength={0.25}>
+              <a
+                href="#contact"
+                onClick={(e) => scrollTo(e, "#contact")}
+                className="text-[13px] font-medium uppercase tracking-[0.15em] bg-foreground text-white px-5 py-2.5 hover:bg-accent transition-colors duration-300 inline-block"
+              >
+                Let&apos;s Talk
+              </a>
+            </MagneticButton>
           </motion.li>
         </ul>
 

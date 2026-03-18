@@ -53,6 +53,26 @@ export default function Hero() {
       ref={ref}
       className="min-h-screen flex flex-col justify-center relative overflow-hidden px-6 lg:px-12"
     >
+      {/* Gradient mesh blobs */}
+      <motion.div
+        animate={{ x: [0, 30, -20, 0], y: [0, -40, 20, 0] }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full opacity-[0.08] blur-3xl pointer-events-none"
+        style={{ background: "radial-gradient(circle, #2563EB, transparent)" }}
+      />
+      <motion.div
+        animate={{ x: [0, -40, 30, 0], y: [0, 30, -30, 0] }}
+        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+        className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full opacity-[0.06] blur-3xl pointer-events-none"
+        style={{ background: "radial-gradient(circle, #8B5CF6, transparent)" }}
+      />
+      <motion.div
+        animate={{ x: [0, 20, -30, 0], y: [0, -20, 40, 0] }}
+        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+        className="absolute top-1/2 right-1/3 w-[350px] h-[350px] rounded-full opacity-[0.05] blur-3xl pointer-events-none"
+        style={{ background: "radial-gradient(circle, #06B6D4, transparent)" }}
+      />
+
       <motion.div
         className="max-w-7xl mx-auto w-full pt-20"
         style={{ opacity, scale }}
