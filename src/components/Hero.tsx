@@ -77,14 +77,6 @@ export default function Hero() {
           </h1>
           <h1 className="text-[clamp(3rem,10vw,9rem)] font-black leading-[0.9] tracking-[-0.04em]">
             <AnimatedText text="CHOUDHARY" className="" />
-            <motion.span
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1.2, duration: 0.5 }}
-              className="text-accent inline-block ml-2"
-            >
-              &copy;
-            </motion.span>
           </h1>
         </motion.div>
 

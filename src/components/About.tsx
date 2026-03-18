@@ -58,7 +58,9 @@ export default function About() {
               <p className="text-base text-secondary leading-[1.8]">
                 Currently building a Train Booking System and a Real-Life RPG
                 App. Open source contributor to{" "}
-                <span className="text-foreground font-semibold">PocketPaw</span>.
+                <span className="text-foreground font-semibold">PocketPaw</span> —
+                fixing critical LLM crash scenarios, adding fallback mechanisms,
+                and strengthening test coverage in security-critical paths.
                 Solved 500+ DSA problems. I believe in clean code and shipping
                 software that works at scale.
               </p>

@@ -53,8 +53,8 @@ const projects = [
   {
     title: "PocketPaw (OSS)",
     description:
-      "Open source contribution to a community pet care platform. Features, bug fixes, and developer experience improvements.",
-    stack: ["Open Source", "React", "Node.js"],
+      "Fixed critical LLM crash scenarios from malformed API responses. Built fallback mechanisms, added validation & audit logging in the guardian module, and wrote unit tests for security-critical paths.",
+    stack: ["Open Source", "LLM", "Node.js", "Testing"],
     github: "#",
     number: "06",
     status: null,

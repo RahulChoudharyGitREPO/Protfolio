@@ -70,6 +70,19 @@ export default function Navbar() {
             transition={{ delay: 0.5, duration: 0.5 }}
           >
             <a
+              href="/resume.pdf"
+              download
+              className="text-[13px] font-medium uppercase tracking-[0.15em] text-secondary hover:text-foreground transition-colors duration-300 link-underline"
+            >
+              Resume
+            </a>
+          </motion.li>
+          <motion.li
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+          >
+            <a
               href="#contact"
               onClick={(e) => scrollTo(e, "#contact")}
               className="text-[13px] font-medium uppercase tracking-[0.15em] bg-foreground text-white px-5 py-2.5 hover:bg-accent transition-colors duration-300"
