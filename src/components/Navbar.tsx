@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import MagneticButton from "./MagneticButton";
+import AvailabilityStatus from "./AvailabilityStatus";
 
 const links = [
   { label: "About", href: "#about" },
@@ -47,6 +48,9 @@ export default function Navbar() {
             RAHUL
             <span className="text-accent">.</span>
           </a>
+
+          {/* Live availability status — desktop only */}
+          <AvailabilityStatus />
 
           {/* Desktop */}
           <ul className="hidden md:flex items-center gap-10">

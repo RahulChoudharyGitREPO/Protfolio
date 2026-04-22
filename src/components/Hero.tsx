@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import FloatingAvatar from "./FloatingAvatar";
+import Typewriter from "./Typewriter";
 
 const letterAnimation = {
   hidden: { y: 100, opacity: 0 },
@@ -92,7 +93,7 @@ export default function Hero() {
         >
           <span className="w-12 h-[1px] bg-foreground" />
           <span className="text-xs font-semibold uppercase tracking-[0.3em] text-secondary">
-            Full Stack Developer
+            <Typewriter />
           </span>
         </motion.div>
 
