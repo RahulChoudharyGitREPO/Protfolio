@@ -11,16 +11,25 @@ const contactLinks = [
     label: "Email",
     value: "rahulrajwwe2@gmail.com",
     href: "mailto:rahulrajwwe2@gmail.com",
+    highlight: false,
   },
   {
     label: "GitHub",
     value: "github.com/RahulChoudharyGitREPO",
     href: "https://github.com/RahulChoudharyGitREPO",
+    highlight: false,
   },
   {
     label: "LinkedIn",
     value: "linkedin.com/in/rahul-choudhary",
     href: "https://www.linkedin.com/in/rahul-choudhary-0348b8296/",
+    highlight: false,
+  },
+  {
+    label: "📞 Call Me",
+    value: "+91 83406 15526",
+    href: "tel:+918340615526",
+    highlight: true,
   },
 ];
 
@@ -99,39 +108,58 @@ export default function Contact() {
             </FadeIn>
             {contactLinks.map((link, i) => (
               <FadeIn key={link.label} delay={0.1 * i + 0.2}>
-                <motion.a
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-cursor-hover
-                  whileHover={{ y: -4 }}
-                  transition={{ duration: 0.25 }}
-                  className="group block border border-border p-6 hover:bg-foreground hover:text-white transition-colors duration-500"
-                >
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary group-hover:text-white/50 transition-colors mb-3">
-                    {link.label}
-                  </p>
-                  <p className="text-base font-semibold tracking-tight group-hover:text-white transition-colors">
-                    {link.value}
-                  </p>
-                  <div className="mt-4 flex justify-end">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      className="text-secondary group-hover:text-white transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
-                    >
-                      <path
-                        d="M7 17L17 7M17 7H10M17 7v7"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
+                {link.highlight ? (
+                  <motion.a
+                    href={link.href}
+                    data-cursor-hover
+                    whileHover={{ y: -4, scale: 1.02 }}
+                    transition={{ duration: 0.25 }}
+                    className="group flex items-center justify-between border-2 border-green-400 bg-green-50 p-6 hover:bg-green-500 hover:text-white transition-all duration-300"
+                  >
+                    <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="relative flex h-2.5 w-2.5">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
+                        </span>
+                        <p className="text-xs font-bold uppercase tracking-[0.2em] text-green-700 group-hover:text-white/80 transition-colors">
+                          {link.label}
+                        </p>
+                      </div>
+                      <p className="text-lg font-black tracking-tight text-green-900 group-hover:text-white transition-colors">
+                        {link.value}
+                      </p>
+                      <p className="text-xs text-green-600 group-hover:text-white/70 transition-colors mt-0.5">
+                        Available for calls — tap to dial
+                      </p>
+                    </div>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-green-600 group-hover:text-white transition-colors shrink-0">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.16 6.16l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
                     </svg>
-                  </div>
-                </motion.a>
+                  </motion.a>
+                ) : (
+                  <motion.a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cursor-hover
+                    whileHover={{ y: -4 }}
+                    transition={{ duration: 0.25 }}
+                    className="group block border border-border p-6 hover:bg-foreground hover:text-white transition-colors duration-500"
+                  >
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary group-hover:text-white/50 transition-colors mb-3">
+                      {link.label}
+                    </p>
+                    <p className="text-base font-semibold tracking-tight group-hover:text-white transition-colors">
+                      {link.value}
+                    </p>
+                    <div className="mt-4 flex justify-end">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-secondary group-hover:text-white transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+                        <path d="M7 17L17 7M17 7H10M17 7v7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
+                  </motion.a>
+                )}
               </FadeIn>
             ))}
           </div>
