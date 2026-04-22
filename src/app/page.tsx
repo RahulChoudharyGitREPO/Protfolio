@@ -18,12 +18,10 @@ import CustomCursor from "@/components/CustomCursor";
 import BackToTop from "@/components/BackToTop";
 import ScrollProgress from "@/components/ScrollProgress";
 import SectionDivider from "@/components/SectionDivider";
-import PageAvatars from "@/components/PageAvatars";
 
 export default function Home() {
   return (
     <>
-      <PageAvatars />
       <SmoothScroll />
       <CustomCursor />
       <ScrollProgress />
