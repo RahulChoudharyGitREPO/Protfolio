@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import FadeIn from "./FadeIn";
 import ContactForm from "./ContactForm";
 import MagneticButton from "./MagneticButton";
+import FloatingAvatar from "./FloatingAvatar";
 
 const contactLinks = [
   {
@@ -26,6 +27,9 @@ const contactLinks = [
 export default function Contact() {
   return (
     <section id="contact" className="py-32 px-6 lg:px-12 border-t border-border relative overflow-hidden">
+      {/* Floating avatars */}
+      <FloatingAvatar seed="lets-connect" style="fun-emoji" bg="#fce7f3" size={64} top="5%" left="4%" rotate={-9} delay={0.2} floatDuration={4.3} />
+      <FloatingAvatar seed="hire-me-now" style="micah" bg="#dcfce7" size={56} bottom="10%" right="3%" rotate={7} delay={0.5} floatDuration={5.4} />
       <div className="max-w-7xl mx-auto">
         <FadeIn>
           <div className="flex items-center gap-3 mb-6">

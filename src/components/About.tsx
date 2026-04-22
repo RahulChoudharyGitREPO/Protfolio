@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import FadeIn from "./FadeIn";
 import AnimatedCounter from "./AnimatedCounter";
+import FloatingAvatar from "./FloatingAvatar";
 
 const BASE_STATS = [
   { key: "years", target: 3, suffix: "+", label: "Years Experience" },
@@ -40,7 +41,10 @@ export default function About() {
   const imgRotate = useTransform(scrollYProgress, [0, 1], [3, -3]);
 
   return (
-    <section id="about" ref={ref} className="py-32 px-6 lg:px-12">
+    <section id="about" ref={ref} className="py-32 px-6 lg:px-12 relative overflow-hidden">
+      {/* Floating avatars */}
+      <FloatingAvatar seed="nestjs-master" style="lorelei" bg="#fce7f3" size={58} top="8%" right="4%" rotate={10} delay={0.3} floatDuration={4.5} />
+      <FloatingAvatar seed="mobile-dev" style="avataaars" bg="#e0f2fe" size={52} bottom="10%" left="2%" rotate={-12} delay={0.5} floatDuration={5.2} />
       <div className="max-w-7xl mx-auto">
         <FadeIn>
           <div className="flex items-center gap-3 mb-16">

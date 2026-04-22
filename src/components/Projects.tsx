@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import FadeIn from "./FadeIn";
+import FloatingAvatar from "./FloatingAvatar";
 
 const projects = [
   {
@@ -14,6 +15,7 @@ const projects = [
     live: "https://lead-ai-d9na.vercel.app/",
     number: "01",
     status: "Live",
+    isOSS: false,
   },
   {
     title: "Train Booking System",
@@ -24,6 +26,7 @@ const projects = [
     live: null,
     number: "02",
     status: null,
+    isOSS: false,
   },
   {
     title: "Real-Life RPG App",
@@ -34,6 +37,7 @@ const projects = [
     live: null,
     number: "03",
     status: "Coming Soon",
+    isOSS: false,
   },
   {
     title: "Sephora Clone",
@@ -44,6 +48,7 @@ const projects = [
     live: null,
     number: "04",
     status: null,
+    isOSS: false,
   },
   {
     title: "Restaurant App Backend",
@@ -54,6 +59,7 @@ const projects = [
     live: null,
     number: "05",
     status: null,
+    isOSS: false,
   },
   {
     title: "Neighbourhood Work Finder",
@@ -64,6 +70,7 @@ const projects = [
     live: null,
     number: "06",
     status: null,
+    isOSS: false,
   },
   {
     title: "PocketPaw (OSS)",
@@ -74,6 +81,7 @@ const projects = [
     live: null,
     number: "07",
     status: null,
+    isOSS: true,
   },
 ];
 
@@ -94,10 +102,26 @@ function ProjectCard({
   return (
     <motion.div
       ref={ref}
-      className={`grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 py-16 border-b border-border items-start ${
+      className={`grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 py-16 border-b border-border items-start relative ${
         index === 0 ? "border-t" : ""
+      } ${
+        project.isOSS
+          ? "bg-emerald-50/60 dark:bg-emerald-950/20 border-l-4 border-l-emerald-500 pl-6 rounded-sm"
+          : ""
       }`}
     >
+      {/* OSS Banner */}
+      {project.isOSS && (
+        <div className="lg:col-span-12 flex items-center gap-2 -mb-4">
+          <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-emerald-600 border border-emerald-400 bg-emerald-50 px-3 py-1">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
+            </svg>
+            Open Source Contributor
+          </span>
+          <span className="text-[11px] text-emerald-600/70">— Real contribution to a production codebase</span>
+        </div>
+      )}
       {/* Number */}
       <div className="lg:col-span-1">
         <span className="text-xs font-mono text-secondary">{project.number}</span>
@@ -233,7 +257,10 @@ function ProjectCard({
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-32 px-6 lg:px-12">
+    <section id="projects" className="py-32 px-6 lg:px-12 relative overflow-hidden">
+      {/* Floating avatars */}
+      <FloatingAvatar seed="fullstack-rahul" style="fun-emoji" bg="#fef9c3" size={62} top="5%" right="3%" rotate={6} delay={0.2} floatDuration={4.8} />
+      <FloatingAvatar seed="dsa-500" style="micah" bg="#fee2e2" size={54} bottom="5%" left="1%" rotate={-8} delay={0.4} floatDuration={3.9} />
       <div className="max-w-7xl mx-auto">
         <FadeIn>
           <div className="flex items-center gap-3 mb-6">

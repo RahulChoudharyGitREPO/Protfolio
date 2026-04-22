@@ -2,10 +2,14 @@
 
 import { motion } from "framer-motion";
 import FadeIn from "./FadeIn";
+import FloatingAvatar from "./FloatingAvatar";
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-32 px-6 lg:px-12 border-t border-border">
+    <section id="experience" className="py-32 px-6 lg:px-12 border-t border-border relative overflow-hidden">
+      {/* Floating avatars */}
+      <FloatingAvatar seed="work-grind" style="adventurer" bg="#fef08a" size={60} top="6%" right="5%" rotate={-7} delay={0.3} floatDuration={4.6} />
+      <FloatingAvatar seed="relific-eng" style="lorelei" bg="#e0e7ff" size={55} bottom="8%" left="3%" rotate={12} delay={0.6} floatDuration={5.1} />
       <div className="max-w-7xl mx-auto">
         <FadeIn>
           <div className="flex items-center gap-3 mb-6">

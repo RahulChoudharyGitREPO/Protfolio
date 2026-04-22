@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import FloatingAvatar from "./FloatingAvatar";
 
 const letterAnimation = {
   hidden: { y: 100, opacity: 0 },
@@ -72,6 +73,11 @@ export default function Hero() {
         className="absolute top-1/2 right-1/3 w-[350px] h-[350px] rounded-full opacity-[0.05] blur-3xl pointer-events-none"
         style={{ background: "radial-gradient(circle, #06B6D4, transparent)" }}
       />
+
+      {/* Floating avatars */}
+      <FloatingAvatar seed="rahul-dev" style="adventurer" bg="#fef3c7" size={68} top="12%" left="5%" rotate={-10} delay={1.4} floatDuration={4.2} />
+      <FloatingAvatar seed="coder-night" style="fun-emoji" bg="#ede9fe" size={60} top="15%" right="7%" rotate={8} delay={1.7} floatDuration={3.8} />
+      <FloatingAvatar seed="backend-guru" style="micah" bg="#d1fae5" size={56} bottom="20%" right="10%" rotate={-5} delay={2.0} floatDuration={5} />
 
       <motion.div
         className="max-w-7xl mx-auto w-full pt-20"
