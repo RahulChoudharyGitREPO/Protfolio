@@ -1,19 +1,33 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import FadeIn from "./FadeIn";
 import AnimatedCounter from "./AnimatedCounter";
 
-const stats = [
-  { target: 1, suffix: "+", label: "Years Experience" },
-  { target: 144, suffix: "+", label: "Repositories" },
-  { target: 500, suffix: "+", label: "DSA Problems" },
-  { target: 0, suffix: "", label: "Contributor", text: "OSS" },
+const BASE_STATS = [
+  { key: "years", target: 3, suffix: "+", label: "Years Experience" },
+  { key: "repos", target: 144, suffix: "+", label: "Repositories" },
+  { key: "dsa", target: 500, suffix: "+", label: "DSA Problems" },
+  { key: "oss", target: 0, suffix: "", label: "Contributor", text: "OSS" },
 ];
 
 export default function About() {
+  const [repoCount, setRepoCount] = useState<number>(144);
+
+  useEffect(() => {
+    fetch("/api/github-stats")
+      .then((r) => r.json())
+      .then((data) => {
+        if (typeof data.repos === "number") setRepoCount(data.repos);
+      })
+      .catch(() => {/* keep fallback */});
+  }, []);
+
+  const stats = BASE_STATS.map((s) =>
+    s.key === "repos" ? { ...s, target: repoCount } : s
+  );
   const ref = useRef<HTMLElement>(null);
   const imgRef = useRef<HTMLDivElement>(null);
   const imgInView = useInView(imgRef, { once: false, margin: "-100px" });
@@ -50,7 +64,7 @@ export default function About() {
 
             <FadeIn delay={0.1}>
               <p className="text-base text-secondary leading-[1.8] mb-5">
-                Software Engineer with 1+ years of hands-on experience
+                Software Engineer with 3+ years of hands-on experience
                 building backend systems with NestJS. I focus on scalable
                 architectures, real-time applications, and polished mobile
                 experiences with React Native.

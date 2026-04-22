@@ -6,12 +6,23 @@ import FadeIn from "./FadeIn";
 
 const projects = [
   {
+    title: "ClientStream",
+    description:
+      "AI-powered Lead Discovery & CRM platform. Automates finding, extracting, and managing high-quality business leads using real-time web scraping and advanced AI extraction. Used by hundreds of real users in production.",
+    stack: ["Next.js", "NestJS", "OpenAI", "Playwright", "MongoDB"],
+    github: "https://github.com/RahulChoudharyGitREPO/LeadAI",
+    live: "https://lead-ai-d9na.vercel.app/",
+    number: "01",
+    status: "Live",
+  },
+  {
     title: "Train Booking System",
     description:
       "Backend-heavy booking platform — auth, seat management, real-time availability, and transactional booking logic.",
     stack: ["NestJS", "MongoDB", "JWT", "REST API"],
     github: "https://github.com/RahulChoudharyGitREPO/TrainApp",
-    number: "01",
+    live: null,
+    number: "02",
     status: null,
   },
   {
@@ -20,7 +31,8 @@ const projects = [
       "Mobile app that gamifies daily life — complete quests, earn XP, level up with real-time tracking and push notifications.",
     stack: ["React Native", "Node.js", "WebSockets", "MongoDB"],
     github: "#",
-    number: "02",
+    live: null,
+    number: "03",
     status: "Coming Soon",
   },
   {
@@ -29,7 +41,8 @@ const projects = [
       "Full-featured e-commerce clone with product browsing, cart, checkout, and payment integration. Pixel-perfect UI with robust backend.",
     stack: ["JavaScript", "Node.js", "MongoDB", "REST API"],
     github: "https://github.com/RahulChoudharyGitREPO/SephoraClone",
-    number: "03",
+    live: null,
+    number: "04",
     status: null,
   },
   {
@@ -38,7 +51,8 @@ const projects = [
       "Scalable backend for a restaurant ordering system — menu management, order flow, real-time status updates, and admin dashboard APIs.",
     stack: ["NestJS", "MongoDB", "JWT", "WebSockets"],
     github: "https://github.com/RahulChoudharyGitREPO/restaurantAppbackend",
-    number: "04",
+    live: null,
+    number: "05",
     status: null,
   },
   {
@@ -47,7 +61,8 @@ const projects = [
       "Connecting people with local service providers and odd jobs. Clean UX with reliable matching algorithms.",
     stack: ["React", "NestJS", "MongoDB", "REST API"],
     github: "https://github.com/RahulChoudharyGitREPO/neighborhood",
-    number: "05",
+    live: null,
+    number: "06",
     status: null,
   },
   {
@@ -56,7 +71,8 @@ const projects = [
       "Fixed critical LLM crash scenarios from malformed API responses. Built fallback mechanisms, added validation & audit logging in the guardian module, and wrote unit tests for security-critical paths.",
     stack: ["Open Source", "LLM", "Node.js", "Testing"],
     github: "#",
-    number: "06",
+    live: null,
+    number: "07",
     status: null,
   },
 ];
@@ -103,9 +119,14 @@ function ProjectCard({
                   {project.title}
                 </a>
               </h3>
-              {project.status && (
+              {project.status === "Live" && (
+                <span className="px-3 py-1 text-[10px] font-bold uppercase tracking-[0.15em] bg-green-500 text-white">
+                  ● Live
+                </span>
+              )}
+              {project.status === "Coming Soon" && (
                 <span className="px-3 py-1 text-[10px] font-bold uppercase tracking-[0.15em] bg-accent text-white animate-pulse">
-                  {project.status}
+                  Coming Soon
                 </span>
               )}
             </div>
@@ -138,10 +159,46 @@ function ProjectCard({
       {/* Links */}
       <div className="lg:col-span-3 flex lg:justify-end items-start">
         <FadeIn delay={0.2}>
-          {project.status ? (
+          {project.status === "Coming Soon" ? (
             <span className="inline-flex items-center gap-2 text-sm font-medium text-secondary">
               In Development
             </span>
+          ) : project.live ? (
+            <div className="flex flex-col gap-3">
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cursor-hover
+                className="group inline-flex items-center gap-2 text-sm font-medium text-white bg-accent px-4 py-2"
+              >
+                <span>↗ View Live</span>
+              </a>
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cursor-hover
+                className="group inline-flex items-center gap-2 text-sm font-medium text-foreground"
+              >
+                <span className="link-underline">GitHub</span>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                >
+                  <path
+                    d="M5.833 14.167L14.167 5.833M14.167 5.833H7.5M14.167 5.833v6.667"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
           ) : (
             <a
               href={project.github}

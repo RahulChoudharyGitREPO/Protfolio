@@ -71,8 +71,8 @@ export default function Navbar() {
             transition={{ delay: 0.5, duration: 0.5 }}
           >
             <a
-              href="/resume.pdf"
-              download
+              href="/Rahul_Choudhary_Resume.pdf"
+              download="Rahul_Choudhary_Resume.pdf"
               className="text-[13px] font-medium uppercase tracking-[0.15em] text-secondary hover:text-foreground transition-colors duration-300 link-underline"
             >
               Resume

@@ -57,8 +57,8 @@ export default function Contact() {
         <FadeIn delay={0.25}>
           <MagneticButton strength={0.3}>
             <a
-              href="/resume.pdf"
-              download
+              href="/Rahul_Choudhary_Resume.pdf"
+              download="Rahul_Choudhary_Resume.pdf"
               data-cursor-hover
               className="inline-flex items-center gap-2 bg-foreground text-white px-6 py-3 text-sm font-medium uppercase tracking-[0.15em] hover:bg-accent transition-colors duration-300 mb-16"
             >
